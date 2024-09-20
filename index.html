@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Web Developer</title>
+    <title>WDeveloper</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body bgcolor="white">
-      <button class="but" id="run">RUN</button>
-      <button class="but" id="remove">remove</button>
-      <button class="but" id="clear">Clear</button>
+      <button class="but" id="run"><b>RUN</b></button>
+      <dialog  id="menub">
+        <button class="but" id="remove">remove</button>
+        <button class="but" id="clear">Clear</button>
+        <button id="compr2">complit</button>
+        <button id="cmb">X</button>
+      </dialog>
+      
       <button class="but" id="host">Host your site</button>
+      <button id="menu">menu</button>
+      <button id="notes">Notes</button>
       
     
     <br><br>
@@ -33,7 +40,9 @@
 
     
 
-    <main id="result"></main>
+    <dialog open id="resb">
+      <main class="result" id="result"></main>
+    </dialog>
 
 
       <dialog id="box">
@@ -42,7 +51,16 @@
         <span><a id="git" href="https://github.com/"></a></span> 
         <button id="closebox"><b>Close</b></button>
       </dialog>
-    
+      <dialog id="compr">
+        <main id="result2"></main>
+        <button id="closebox1"><b>Close</b></button>
+      </dialog>
+
+      <dialog id="noteb">
+        <textarea id="notet"></textarea>
+        <button id="sn">SAVE</button>
+        <button id="cn">CLOSE</button>
+      </dialog>
 
       
       <script src="script.js"></script>
