@@ -1,79 +1,25 @@
-var code = document.getElementById('code');
-var run = document.getElementById('run');
-var remove = document.getElementById('remove');
-var result = document.getElementById('result');
-var result2 = document.getElementById('result2');
-var clear = document.getElementById('clear');
-var box = document.getElementById('box');
-var closebox = document.getElementById('closebox');
-var closebox1 = document.getElementById('closebox1');
-var host = document.getElementById('host');
-var comp = document.getElementById('compr');
-var compb = document.getElementById('compr2');
-var menub = document.getElementById('menub');
-var menu = document.getElementById('menu');
-var cmb = document.getElementById('cmb');
-var notes = document.getElementById('notes');
-var noteb = document.getElementById('noteb');
-var sn = document.getElementById('sn');
-var cn = document.getElementById('cn');
-var notet = document.getElementById('notet').value;
-
-
-
-
-
-notes.onclick = ()=> {
-  noteb.setAttribute('open','true');
-  notet.value = localStorage.getItem("notest");
+function run(){
+  try{
+      var ht =    document.getElementById("code-ht").value;
+      var cs = document.getElementById("code-cs").value;
+      var js = document.getElementById("code-js").value;
+      var out = document.getElementById("out");
+      var er = document.getElementById("er");
+      out.contentDocument.body.innerHTML = ht + "<style>" + cs + "</style>";
+      out.contentWindow.eval(js);
+      localStorage.setItem(code-ht,ht.value);
+      localStorage.setItem(code-cs,cs.value);
+      localStorage.setItem(code-js,js.value);
+  }catch(error){
+      console.log(error);
+      er.innerHTML = "'" + js + "'" + "<h3 id='er'>" + error + "</h3>";
+  }
+  
+  }
+  
+function cls(){
+    var er = document.getElementById("er");
+    er.innerHTML = "<h3 id='ner'>errors</h3>";
+    out.contentDocument.body.innerHTML = "";
+    //er.value = "";
 }
-cn.onclick = ()=> {
-  noteb.removeAttribute('open');
-}
-sn.onclick = ()=> {
-  localStorage.setItem("notest",notet.value);
-  alert("Saved!!");
-}
-cmb.onclick = ()=> {
-  menub.removeAttribute('open');
-}
-menu.onclick = ()=> {
-  menub.setAttribute('open','true');
-}
-
-compb.onclick = ()=> {
-  comp.setAttribute('open','true');
-  result2.innerHTML = code.value;
-  localStorage.setItem("codes",code.value);
-}
-
-run.onclick = ()=> {
-  result.innerHTML = code.value;
-  localStorage.setItem("codes",code.value);
-};
-
-clear.onclick = ()=> {
-  code.value = "";
-};
-
-remove.onclick = ()=> {
-  result.innerHTML = "";
-
-};
-onload = ()=> {
-  code.value = localStorage.getItem("codes");
-  notet.value = localStorage.getItem("notest");
-};
-
-closebox.onclick = ()=> {  
-  box.removeAttribute('open');
-};
-
-closebox1.onclick = ()=> {  
-  comp.removeAttribute('open');
-};
-
-host.onclick = ()=> {
-  box.setAttribute('open','true');
-}
-
